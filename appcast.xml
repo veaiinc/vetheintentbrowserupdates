@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Ve — The Intent Browser</title>
+    <link>https://github.com/veaiinc/vetheintentbrowserupdates/releases</link>
+    <description>Most recent updates to Ve — The Intent Browser (macOS).</description>
+    <language>en</language>
+    <!--
+      One <item> appended per release by scripts/publish-release.sh, e.g.:
+
+      <item>
+        <title>1.0.0</title>
+        <pubDate>Mon, 28 Jun 2026 13:00:00 +0530</pubDate>
+        <sparkle:version>10000</sparkle:version>            (monotonic build number)
+        <sparkle:shortVersionString>1.0.0</sparkle:shortVersionString>
+        <sparkle:minimumSystemVersion>11.0</sparkle:minimumSystemVersion>
+        <description><![CDATA[ release notes html ]]></description>
+        <enclosure
+          url="https://github.com/veaiinc/vetheintentbrowserupdates/releases/download/v1.0.0/Ve-1.0.0.dmg"
+          sparkle:edSignature="EDDSA_SIGNATURE_HERE"
+          length="DMG_BYTE_SIZE"
+          type="application/octet-stream" />
+      </item>
+    -->
+  </channel>
+</rss>
