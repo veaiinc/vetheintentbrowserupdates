@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Ve — The Intent Browser</title>
+    <item>
+      <title>0.0.1</title>
+      <pubDate>Wed, 01 Jul 2026 18:43:07 +0000</pubDate>
+      <sparkle:version>0.0.1</sparkle:version>
+      <sparkle:shortVersionString>0.0.1</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://github.com/veaiinc/vetheintentbrowserupdates/releases/download/mac-v0.0.1/Ve-The-Intent-Browser-0.0.1.dmg" type="application/octet-stream" length="195703482" sparkle:edSignature="uJiMEn1z9fgab5bp2Ao31WU7wnKRrjyPVJFY7tl4+P7t4b06XDnyP6VYkE6PGkFfQqzntFWZ1ecIk5ejzj1KBA==" length="195703482" />
+    </item>
+  </channel>
+</rss>
