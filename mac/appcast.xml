@@ -8,7 +8,7 @@
       <sparkle:version>0.0.1</sparkle:version>
       <sparkle:shortVersionString>0.0.1</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-      <enclosure url="https://github.com/veaiinc/vetheintentbrowserupdates/releases/download/mac-v0.0.1/Ve-The-Intent-Browser-0.0.1.dmg" type="application/octet-stream" length="195703482" sparkle:edSignature="uJiMEn1z9fgab5bp2Ao31WU7wnKRrjyPVJFY7tl4+P7t4b06XDnyP6VYkE6PGkFfQqzntFWZ1ecIk5ejzj1KBA==" length="195703482" />
+      <enclosure url="https://github.com/veaiinc/vetheintentbrowserupdates/releases/download/mac-v0.0.1/Ve-The-Intent-Browser-0.0.1.dmg" type="application/octet-stream" sparkle:edSignature="uJiMEn1z9fgab5bp2Ao31WU7wnKRrjyPVJFY7tl4+P7t4b06XDnyP6VYkE6PGkFfQqzntFWZ1ecIk5ejzj1KBA==" length="195703482" />
     </item>
   </channel>
 </rss>
