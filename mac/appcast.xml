@@ -3,6 +3,14 @@
   <channel>
     <title>Ve — The Intent Browser</title>
     <item>
+      <title>0.0.9</title>
+      <pubDate>Tue, 07 Jul 2026 05:08:52 +0000</pubDate>
+      <sparkle:version>0.0.9</sparkle:version>
+      <sparkle:shortVersionString>0.0.9</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://github.com/veaiinc/vetheintentbrowserupdates/releases/download/mac-v0.0.9/Ve-The-Intent-Browser-0.0.9.dmg" type="application/octet-stream" sparkle:edSignature="tn4S95/2ekvgxNIhOnTiBfJBKX7J/zvkWAPPN9dJGBDgPhM+qT4RfFpRjpJJN35ItMXNXFA1bLTWW9IS5sACBg==" length="200054842" />
+    </item>
+    <item>
       <title>0.0.8</title>
       <pubDate>Mon, 06 Jul 2026 07:04:10 +0000</pubDate>
       <sparkle:version>0.0.8</sparkle:version>
