@@ -1,24 +1,20 @@
 name: Validate appcast
 
-# Safety gate for the Sparkle auto-update feed. It does NOT sign anything (the
-# EdDSA private key never touches CI — release-mac.sh --publish remains the sole
-# signer). It only VERIFIES that mac/appcast.xml is a feed Sparkle clients can
-# actually consume, so a malformed or half-published release is caught before
-# users' browsers try to update from it.
-#
-# Checks per <item>:
-#   • the feed is well-formed XML with the Sparkle namespace
-#   • every enclosure has a non-empty sparkle:edSignature and a length
-#   • every enclosure URL resolves (the DMG release asset really exists)
-#   • the newest <sparkle:version> is at the top (Sparkle picks the max, but an
-#     out-of-order feed is a red flag that a publish went wrong)
+# Safety gate for the Sparkle auto-update feed. Does NOT sign anything — the
+# EdDSA private key never touches CI (release-mac.sh --publish stays the signer).
+# It only verifies mac/appcast.xml is a feed Sparkle clients can consume, so a
+# malformed or half-published release is caught before users auto-update from it.
 
 on:
   push:
     branches: [main]
-    paths: ['mac/appcast.xml', '.github/workflows/validate-appcast.yml']
+    paths:
+      - 'mac/appcast.xml'
+      - 'scripts/validate_appcast.py'
+      - '.github/workflows/validate-appcast.yml'
   pull_request:
-    paths: ['mac/appcast.xml']
+    paths:
+      - 'mac/appcast.xml'
   release:
     types: [published, edited]
   workflow_dispatch:
@@ -32,70 +28,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Validate mac/appcast.xml
-        run: |
-          python3 - <<'PY'
-          import sys, urllib.request, xml.etree.ElementTree as ET
-          from packaging.version import Version
-
-          PATH = "mac/appcast.xml"
-          SPARKLE = "http://www.andymatuschak.org/xml-namespaces/sparkle"
-          errors, warnings = [], []
-
-          try:
-              tree = ET.parse(PATH)
-          except Exception as e:
-              print(f"::error::appcast is not well-formed XML: {e}")
-              sys.exit(1)
-
-          items = tree.getroot().findall(".//item")
-          if not items:
-              print("::error::appcast has no <item> entries")
-              sys.exit(1)
-
-          versions = []
-          for it in items:
-              ver_el = it.find(f"{{{SPARKLE}}}version")
-              title = (it.findtext("title") or "?").strip()
-              ver = (ver_el.text or "").strip() if ver_el is not None else ""
-              if not ver:
-                  errors.append(f"[{title}] missing <sparkle:version>")
-              else:
-                  try: versions.append(Version(ver))
-                  except Exception: errors.append(f"[{title}] unparseable version '{ver}'")
-
-              enc = it.find("enclosure")
-              if enc is None:
-                  errors.append(f"[{title}] missing <enclosure>"); continue
-              url = enc.get("url", "")
-              sig = enc.get(f"{{{SPARKLE}}}edSignature", "")
-              length = enc.get("length", "")
-              if not sig:
-                  errors.append(f"[{title}] enclosure has NO sparkle:edSignature — Sparkle would REJECT this update")
-              if not length or not length.isdigit() or int(length) <= 0:
-                  errors.append(f"[{title}] enclosure length is missing/invalid ('{length}')")
-              if not url.startswith("https://"):
-                  errors.append(f"[{title}] enclosure url is not https ('{url}')")
-              else:
-                  # The DMG must actually exist (a release asset), else auto-update 404s.
-                  try:
-                      req = urllib.request.Request(url, method="HEAD")
-                      with urllib.request.urlopen(req, timeout=30) as r:
-                          if r.status not in (200, 302):
-                              errors.append(f"[{title}] enclosure URL returned HTTP {r.status}: {url}")
-                  except Exception as e:
-                      errors.append(f"[{title}] enclosure URL not reachable ({e}): {url}")
-
-          if versions and versions[0] != max(versions):
-              warnings.append(f"newest version {max(versions)} is not the FIRST item (top is {versions[0]}) — Sparkle still works, but check the publish order")
-
-          for w in warnings: print(f"::warning::{w}")
-          for e in errors:   print(f"::error::{e}")
-          if errors:
-              print(f"\nFAILED: {len(errors)} problem(s) in {PATH}")
-              sys.exit(1)
-          print(f"OK: {len(items)} item(s) validated; all enclosures signed + reachable.")
-          PY
-        shell: bash
-      - name: Ensure packaging is available
-        if: failure()
-        run: echo "note: if the failure was 'No module named packaging', add 'pip install packaging' before the check."
+        run: python3 scripts/validate_appcast.py
