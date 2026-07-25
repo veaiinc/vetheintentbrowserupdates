@@ -2,6 +2,15 @@
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <title>Ve — The Intent Browser</title>
+    <item>
+      <title>0.0.26</title>
+      <pubDate>Sat, 25 Jul 2026 05:26:14 +0000</pubDate>
+      <sparkle:version>0.0.26</sparkle:version>
+      <sparkle:shortVersionString>0.0.26</sparkle:shortVersionString>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://github.com/veaiinc/vetheintentbrowserupdates/releases/download/mac-v0.0.26/Ve-The-Intent-Browser-0.0.26.dmg" type="application/octet-stream" sparkle:edSignature="8OFyDrVhORk7oW8uryYeKTRNVZ5c+1TpTvPDsbf0OAJOP6hWsOlghpx5115a/PCMMKtO16vmgnY6TJhwOtTUDg==" length="304343914" />
+    </item>
 <item>
       <title>0.0.21</title>
       <pubDate>Tue, 21 Jul 2026 10:45:13 +0000</pubDate>
