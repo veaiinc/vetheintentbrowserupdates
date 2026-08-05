@@ -3,6 +3,14 @@
   <channel>
     <title>Ve — The Intent Browser</title>
     <item>
+      <title>0.0.51</title>
+      <pubDate>Wed, 05 Aug 2026 05:11:42 +0000</pubDate>
+      <sparkle:version>0.0.51</sparkle:version>
+      <sparkle:shortVersionString>0.0.51</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://github.com/veaiinc/vetheintentbrowserupdates/releases/download/v0.0.51/Ve-0.0.51.dmg" type="application/octet-stream" sparkle:edSignature="D9itslpuc72d3YZkG0ecycvyfbxft/tqrsNTUzmiGZf1PjGJJHe2reQ8b/XMSgmCAl5H0QQRrWviZvObFMP8Dg==" length="298175864" />
+    </item>
+    <item>
       <title>0.0.48</title>
       <pubDate>Tue, 04 Aug 2026 07:10:27 +0000</pubDate>
       <sparkle:version>0.0.48</sparkle:version>
